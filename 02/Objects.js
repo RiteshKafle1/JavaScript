@@ -46,8 +46,6 @@ socialUser.isLoggedIn = false;
 // console.log(socialUser.hasOwnProperty('city'));//false
 
 
-
-
 const regularUser = {
   email: "user@gmail.com",
   fullName: {
