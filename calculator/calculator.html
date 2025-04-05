@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="index.css">
+
+  <style>
+    *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  width:90vw ;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box{
+  width:30% ;
+  height: 80%;
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: rgb(123, 222, 218);
+  display: flex;
+  /* flex-direction: row; */
+  column-gap: 17px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.box button{
+  width:18% ;
+  height:8% ;
+  font-size:18px ;
+  color: black;
+  padding: 2px;
+  text-align: center;
+  font-weight:500 ;
+}
+#textfield{
+  height:10% ;
+  color: black;
+  font-size: 14px;
+  padding: 4px;
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="box">
+      <input type="text" id="textfield" readonly>
+      
+      <button onclick="
+      currentValue='';
+      document.querySelector('#textfield').value=currentValue;
+      
+      ">C</button>
+
+      <button onclick="
+      currentValue=currentValue+'1';
+      document.querySelector('#textfield').value=currentValue;
+      
+      ">1</button>
+      <button onclick="
+      currentValue=currentValue+'2';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >2</button>
+      <button onclick="
+      currentValue=currentValue+'3';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >3</button>
+
+      <button onclick="
+      currentValue=currentValue+'4';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >4</button>
+      <button onclick="
+      currentValue=currentValue+'5';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >5</button>
+      <button onclick="
+      currentValue=currentValue+'6';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >6</button>
+      <button onclick="
+      currentValue=currentValue+'7';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >7</button>
+      <button onclick="
+      currentValue=currentValue+'8';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >8</button>
+      <button onclick="
+      currentValue=currentValue+'9';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >9</button>
+      <button onclick="
+      currentValue=currentValue+'0';
+      document.querySelector('#textfield').value=currentValue" >0</button>
+
+      <button onclick="
+      currentValue=currentValue+'+';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >+</button>
+      <button onclick="
+      currentValue=currentValue+'-';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >-</button>
+
+      <button onclick="
+      currentValue=currentValue+'*';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >*</button>
+
+      <button onclick="
+      currentValue=currentValue+'/';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >/</button>
+
+      <button onclick="
+      let result=eval(currentValue);
+      document.querySelector('#textfield').value=result;
+      
+      
+      " >=</button>
+      
+      <button onclick="
+      currentValue=currentValue+'.';
+      document.querySelector('#textfield').value=currentValue;
+      
+      " >.</button>
+    </div>
+
+  </div>
+
+
+  <script >
+    let currentValue='';
+    document.querySelector('#textfield').value=currentValue;
+
+
+
+
+  </script>
+</body>
+
+</html>
