@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .stopwatch {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin: 0 0 20px;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-right: 4px;
+      color: #fff;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+    }
+
+    button:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="stopwatch">
+    <h1 id="display-time">00:00:00</h1>
+    <div class="buttons">
+      <button onclick="watchStart();">Start</button>
+      <button onclick=" watchStop();">Stop</button>
+      <button onclick="watchReset()">Reset</button>
+    </div>
+  </div>
+  <script>
+    let second = 0;
+    let minute = 0;
+    let hour = 0;
+    let displayTime = document.querySelector('#display-time');
+
+    function stopwatch() {
+      second++;
+      if (second === 60) {
+        second = 0;
+        minute++;
+
+        if (minute === 60) {
+          minute = 0;
+          hour++
+        }
+
+      }
+      let h = hour < 10 ? '0' + hour : hour;
+      let m = minute < 10 ? '0' + minute : minute;
+      let s = second < 10 ? '0' + second : second;
+      displayTime.innerHTML = `${h}:${m}:${s}`;
+    };
+    let timer;
+
+    function watchStart() {
+      timer = setInterval(stopwatch, 1000)
+    }
+    function watchStop() {
+      clearInterval(timer);
+    }
+    function watchReset() {
+      second = 0
+      hour = 0
+      minute = 0
+      clearInterval(timer);
+      displayTime.innerHTML = `${hour}:${minute}:${second}`
+
+
+    }
+</script>
+</body>
+</html>
